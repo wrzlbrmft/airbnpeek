@@ -1,7 +1,9 @@
 #include <iostream>
 
+using namespace std;
+
 int main() {
-	std::cout << "airbnpeek" << std::endl;
+	cout << "airbnpeek" << endl;
 
 	return 0;
 }
