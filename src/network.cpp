@@ -29,7 +29,7 @@ std::shared_ptr<network> network::from_string(const std::string s) {
 			type = network_type::ipv6;
 		}
 		else {
-			throw exception("invalid network address");
+			throw exception("unknown network type");
 		}
 	}
 	catch (exception &e) {
