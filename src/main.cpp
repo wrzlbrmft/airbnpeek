@@ -1,10 +1,9 @@
 #include <iostream>
 #include <boost/program_options.hpp>
 
-using namespace boost;
+#include "version.h"
 
-#define APP_NAME "airbnpeek"
-#define APP_VERSION "0.0.0"
+using namespace boost;
 
 void print_version_info() {
 	std::cout << APP_NAME << " " << APP_VERSION << std::endl;
