@@ -16,9 +16,12 @@ void print_help_message(program_options::options_description &desc) {
 }
 
 int main(int argc, char** argv) {
+	std::string interface;
+
 	try {
 		program_options::options_description desc("options");
 		desc.add_options()
+			("interface,I", program_options::value<std::string>(&interface), "which network interface to use")
 			("version", "print version info and exit")
 			("help,h", "print this help message and exit");
 
@@ -36,12 +39,17 @@ int main(int argc, char** argv) {
 		}
 	}
 	catch (std::exception &e) {
-		std::cerr << e.what() << std::endl;
+		std::cerr << "error: " << e.what() << std::endl;
 		return -1;
 	}
 	catch (...) {
-		std::cerr << "unknown error" << std::endl;
+		std::cerr << "error: unknown error" << std::endl;
 		return -1;
+	}
+
+	if (interface.empty()) {
+		std::cerr << "error: no network interface" << std::endl;
+		return 1;
 	}
 
 	return 0;
