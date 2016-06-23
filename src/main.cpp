@@ -15,14 +15,14 @@ void print_help_message(program_options::options_description &desc) {
 }
 
 int main(int argc, char** argv) {
-	std::string interface;
-	std::vector<std::string> networks;
+	std::string po_interface;
+	std::vector<std::string> po_networks;
 
 	try {
 		program_options::options_description desc("options");
 		desc.add_options()
-			("network,N", program_options::value<std::vector<std::string>>(&networks), "which network(s) to scan, e.g. 192.168.0.0/24")
-			("interface,I", program_options::value<std::string>(&interface), "which interface to use")
+			("network,N", program_options::value<std::vector<std::string>>(&po_networks), "which network(s) to scan, e.g. 192.168.0.0/24")
+			("interface,I", program_options::value<std::string>(&po_interface), "which interface to use")
 			("version", "print version info and exit")
 			("help,h", "print this help message and exit");
 
@@ -48,19 +48,19 @@ int main(int argc, char** argv) {
 		return -1;
 	}
 
-	if (interface.empty()) {
+	if (po_interface.empty()) {
 		std::cerr << "error: no interface" << std::endl;
 		return 1;
 	}
 
-	if (networks.empty()) {
+	if (po_networks.empty()) {
 		std::cerr << "error: no network(s)" << std::endl;
 		return 1;
 	}
 
-	std::cout << interface << std::endl;
-	for (auto network : networks) {
-		std::cout << network << std::endl;
+	std::cout << po_interface << std::endl;
+	for (auto po_network : po_networks) {
+		std::cout << po_network << std::endl;
 	}
 
 	return 0;
