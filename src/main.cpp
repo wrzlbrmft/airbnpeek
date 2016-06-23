@@ -3,13 +3,13 @@
 
 #include "version.h"
 
-using namespace boost;
+namespace po = boost::program_options;
 
 void print_version_info() {
 	std::cout << APP_NAME << " " << APP_VERSION << std::endl;
 }
 
-void print_help_message(program_options::options_description &desc) {
+void print_help_message(po::options_description &desc) {
 	print_version_info();
 	std::cout << desc << std::endl;
 }
@@ -19,16 +19,16 @@ int main(int argc, char** argv) {
 	std::vector<std::string> po_networks;
 
 	try {
-		program_options::options_description desc("options");
+		po::options_description desc("options");
 		desc.add_options()
-			("network,N", program_options::value<std::vector<std::string>>(&po_networks), "which network(s) to scan, e.g. 192.168.0.0/24")
-			("interface,I", program_options::value<std::string>(&po_interface), "which interface to use")
+			("network,N", po::value<std::vector<std::string>>(&po_networks), "which network(s) to scan, e.g. 192.168.0.0/24")
+			("interface,I", po::value<std::string>(&po_interface), "which interface to use")
 			("version", "print version info and exit")
 			("help,h", "print this help message and exit");
 
-		program_options::variables_map vm;
-		program_options::store(program_options::parse_command_line(argc, argv, desc), vm);
-		program_options::notify(vm);
+		po::variables_map vm;
+		po::store(po::parse_command_line(argc, argv, desc), vm);
+		po::notify(vm);
 
 		if (vm.count("version")) {
 			print_version_info();
