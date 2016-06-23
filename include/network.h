@@ -6,7 +6,7 @@
 
 class network {
 public:
-	static std::shared_ptr<network> from_string(std::string s);
+	static std::shared_ptr<network> from_string(const std::string s);
 };
 
 #endif
