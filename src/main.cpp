@@ -30,8 +30,7 @@ int main(int argc, char** argv) {
 			print_version_info();
 			return 0;
 		}
-
-		if (vm.count("help")) {
+		else if (vm.count("help")) {
 			print_help_message(desc);
 			return 0;
 		}
