@@ -42,11 +42,11 @@ int main(int argc, char** argv) {
 	}
 	catch (std::exception &e) {
 		std::cerr << "error: " << e.what() << std::endl;
-		return -1;
+		return 1;
 	}
 	catch (...) {
 		std::cerr << "error: unknown error" << std::endl;
-		return -1;
+		return 1;
 	}
 
 	if (po_interface.empty()) {
@@ -61,7 +61,7 @@ int main(int argc, char** argv) {
 
 	for (auto po_network : po_networks) {
 		try {
-			auto network = network::fromString(po_network);
+			auto network = network::from_string(po_network);
 		}
 		catch (std::exception &e) {
 			std::cerr << "error: " << e.what() << std::endl;

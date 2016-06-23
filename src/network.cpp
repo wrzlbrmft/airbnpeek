@@ -6,7 +6,7 @@
 
 #include "error.h"
 
-std::shared_ptr<network> network::fromString(std::string s) {
+std::shared_ptr<network> network::from_string(std::string s) {
 	std::vector<std::string> splits;
 	boost::split(splits, s, boost::is_any_of("/"));
 
