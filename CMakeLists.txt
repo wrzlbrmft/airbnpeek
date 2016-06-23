@@ -8,6 +8,6 @@ include_directories(include)
 find_package(Boost 1.60 REQUIRED COMPONENTS program_options system)
 include_directories(${Boost_INCLUDE_DIRS})
 
-set(SOURCE_FILES src/main.cpp src/error.cpp src/network.cpp)
+set(SOURCE_FILES src/main.cpp src/error.cpp src/network.cpp src/network_ipv4.cpp)
 add_executable(airbnpeek ${SOURCE_FILES})
 target_link_libraries(airbnpeek ${Boost_LIBRARIES})
