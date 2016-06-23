@@ -48,9 +48,13 @@ std::shared_ptr<network> network::from_string(const std::string s) {
 
 	switch (type) {
 		case network_type::ipv4:
-			return new network_ipv4(ip, suffix);
+			return std::shared_ptr<network>(new network_ipv4(ip, suffix));
+			break;
 
 		case network_type::ipv6:
 			throw exception("ipv6 currently not supported");
+			break;
 	}
+
+	return nullptr;
 }
