@@ -10,6 +10,7 @@ protected:
 
 public:
 	exception(std::string msg);
+
 	virtual const char* what() const throw();
 };
 
