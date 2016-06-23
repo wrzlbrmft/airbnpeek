@@ -22,8 +22,8 @@ int main(const int argc, const char** argv) {
 	try {
 		po::options_description desc("options");
 		desc.add_options()
-			("network,N", po::value<std::vector<std::string>>(&po_networks), "which network(s) to scan, e.g. 192.168.0.0/24")
 			("interface,I", po::value<std::string>(&po_interface), "which interface to use")
+			("network,N", po::value<std::vector<std::string>>(&po_networks), "which network(s) to scan, e.g. 192.168.0.0/24")
 			("version", "print version info and exit")
 			("help,h", "print this help message and exit");
 
