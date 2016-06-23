@@ -9,7 +9,7 @@ protected:
 	std::string msg;
 
 public:
-	exception(std::string msg);
+	exception(const std::string msg);
 
 	virtual const char* what() const throw();
 };

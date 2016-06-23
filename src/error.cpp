@@ -1,6 +1,6 @@
 #include "error.h"
 
-exception::exception(std::string msg) {
+exception::exception(const std::string msg) {
 	this->msg = msg;
 }
 
