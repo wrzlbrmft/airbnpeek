@@ -15,7 +15,7 @@ void print_help_message(po::options_description &desc) {
 	std::cout << desc << std::endl;
 }
 
-int main(int argc, char** argv) {
+int main(const int argc, const char** argv) {
 	std::string po_interface;
 	std::vector<std::string> po_networks;
 
