@@ -21,7 +21,7 @@ int main(int argc, char** argv) {
 	try {
 		program_options::options_description desc("options");
 		desc.add_options()
-			("interface,I", program_options::value<std::string>(&interface), "which network interface to use")
+			("interface,I", program_options::value<std::string>(&interface), "which interface to use")
 			("version", "print version info and exit")
 			("help,h", "print this help message and exit");
 
@@ -48,7 +48,7 @@ int main(int argc, char** argv) {
 	}
 
 	if (interface.empty()) {
-		std::cerr << "error: no network interface" << std::endl;
+		std::cerr << "error: no interface" << std::endl;
 		return 1;
 	}
 
