@@ -2,6 +2,7 @@
 #include <boost/program_options.hpp>
 
 #include "version.h"
+#include "network.h"
 
 namespace po = boost::program_options;
 
@@ -58,9 +59,14 @@ int main(int argc, char** argv) {
 		return 1;
 	}
 
-	std::cout << po_interface << std::endl;
 	for (auto po_network : po_networks) {
-		std::cout << po_network << std::endl;
+		try {
+			auto network = network::fromString(po_network);
+		}
+		catch (std::exception &e) {
+			std::cerr << "error: " << e.what() << std::endl;
+			return 1;
+		}
 	}
 
 	return 0;
