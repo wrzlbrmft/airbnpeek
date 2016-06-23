@@ -17,10 +17,12 @@ void print_help_message(program_options::options_description &desc) {
 
 int main(int argc, char** argv) {
 	std::string interface;
+	std::vector<std::string> networks;
 
 	try {
 		program_options::options_description desc("options");
 		desc.add_options()
+			("network,N", program_options::value<std::vector<std::string>>(&networks), "which network(s) to scan, e.g. 192.168.0.0/24")
 			("interface,I", program_options::value<std::string>(&interface), "which interface to use")
 			("version", "print version info and exit")
 			("help,h", "print this help message and exit");
@@ -50,6 +52,16 @@ int main(int argc, char** argv) {
 	if (interface.empty()) {
 		std::cerr << "error: no interface" << std::endl;
 		return 1;
+	}
+
+	if (networks.empty()) {
+		std::cerr << "error: no network(s)" << std::endl;
+		return 1;
+	}
+
+	std::cout << interface << std::endl;
+	for (auto network : networks) {
+		std::cout << network << std::endl;
 	}
 
 	return 0;
