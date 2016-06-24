@@ -15,8 +15,6 @@ public:
 	boost::asio::ip::address_v4 get_ip_addr() const;
 	void set_ip_addr(const boost::asio::ip::address_v4 ip_addr);
 
-	virtual uint8_t suffix_inv() const;
-
 	virtual uint32_t min_ip_long() const;
 	virtual uint32_t max_ip_long() const;
 };

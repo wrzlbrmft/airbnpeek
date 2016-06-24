@@ -25,8 +25,6 @@ public:
 	uint8_t get_suffix() const;
 	void set_suffix(const uint8_t suffix);
 
-	virtual uint8_t suffix_inv() const = 0;
-
 	virtual uint32_t min_ip_long() const = 0;
 	virtual uint32_t max_ip_long() const = 0;
 
