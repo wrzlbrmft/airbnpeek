@@ -12,3 +12,11 @@ network_ipv4::network_ipv4(const std::string ip, const uint8_t suffix) {
 		throw exception("invalid ipv4 network address");
 	}
 }
+
+boost::asio::ip::address_v4 network_ipv4::get_ip_addr() const {
+	return ip_addr;
+}
+
+void network_ipv4::set_ip_addr(const boost::asio::ip::address_v4 ip_addr) {
+	this->ip_addr = ip_addr;
+}

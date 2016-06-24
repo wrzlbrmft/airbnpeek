@@ -11,6 +11,9 @@ protected:
 
 public:
 	network_ipv4(const std::string ip, const uint8_t suffix);
+
+	boost::asio::ip::address_v4 get_ip_addr() const;
+	void set_ip_addr(const boost::asio::ip::address_v4 ip_addr);
 };
 
 #endif
