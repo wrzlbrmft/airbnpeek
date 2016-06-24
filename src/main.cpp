@@ -62,6 +62,7 @@ int main(const int argc, const char** argv) {
 	for (auto po_network : po_networks) {
 		try {
 			auto network = network::from_string(po_network);
+			std::cout << network->min_ip() << std::endl;
 		}
 		catch (std::exception &e) {
 			std::cerr << "error: " << e.what() << std::endl;

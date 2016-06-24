@@ -20,3 +20,16 @@ boost::asio::ip::address_v4 network_ipv4::get_ip_addr() const {
 void network_ipv4::set_ip_addr(const boost::asio::ip::address_v4 ip_addr) {
 	this->ip_addr = ip_addr;
 }
+
+uint8_t network_ipv4::suffix_inv() const {
+	return static_cast<uint8_t>(std::numeric_limits<uint32_t>::digits - get_suffix());
+}
+
+uint32_t network_ipv4::min_ip_long() const {
+	return static_cast<uint32_t>((get_ip_addr().to_ulong() >> suffix_inv() << suffix_inv()) + 1);
+}
+
+std::string network_ipv4::min_ip() const {
+	boost::asio::ip::address_v4 ip(min_ip_long());
+	return ip.to_string();
+}
