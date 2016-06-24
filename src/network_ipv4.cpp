@@ -22,10 +22,10 @@ void network_ipv4::set_ip_addr(const boost::asio::ip::address_v4 ip_addr) {
 	this->ip_addr = ip_addr;
 }
 
-uint32_t network_ipv4::min_ip_long() const {
+boost::multiprecision::uint128_t network_ipv4::min_ip_long() const {
 	return 0;
 }
 
-uint32_t network_ipv4::max_ip_long() const {
+boost::multiprecision::uint128_t network_ipv4::max_ip_long() const {
 	return 0;
 }

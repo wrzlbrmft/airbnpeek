@@ -1,8 +1,9 @@
 #ifndef NETWORK_H
 #define NETWORK_H
 
-#include <memory>
 #include <string>
+#include <memory>
+#include <boost/multiprecision/cpp_int.hpp>
 
 enum class network_type {
 	ipv4,
@@ -25,8 +26,8 @@ public:
 	uint8_t get_suffix() const;
 	void set_suffix(const uint8_t suffix);
 
-	virtual uint32_t min_ip_long() const = 0;
-	virtual uint32_t max_ip_long() const = 0;
+	virtual boost::multiprecision::uint128_t min_ip_long() const = 0;
+	virtual boost::multiprecision::uint128_t max_ip_long() const = 0;
 
 	static std::shared_ptr<network> from_string(const std::string s);
 };

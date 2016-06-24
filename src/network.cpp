@@ -1,6 +1,5 @@
 #include "network.h"
 
-#include <vector>
 #include <boost/algorithm/string.hpp>
 #include <boost/asio.hpp>
 
@@ -33,14 +32,15 @@ void network::set_suffix(const uint8_t suffix) {
 
 std::shared_ptr<network> network::from_string(const std::string s) {
 	std::vector<std::string> splits;
-	std::string ip;
-	network_type type;
-	uint8_t suffix;
 
 	boost::split(splits, s, boost::is_any_of("/"));
 	if (2 != splits.size()) {
 		throw exception("invalid network");
 	}
+
+	std::string ip;
+	network_type type;
+	uint8_t suffix;
 
 	try {
 		ip = splits[0];
