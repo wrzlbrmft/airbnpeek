@@ -5,6 +5,7 @@
 network_ipv4::network_ipv4(const std::string ip, const uint8_t suffix) {
 	try {
 		this->ip = ip;
+		this->type = network_type::ipv4;
 		this->suffix = suffix;
 		this->ip_addr = boost::asio::ip::address_v4::from_string(this->ip);
 	}

@@ -15,6 +15,14 @@ void network::set_ip(const std::string ip) {
 	this->ip = ip;
 }
 
+network_type network::get_type() const {
+	return type;
+}
+
+void network::set_type(const network_type type) {
+	this->type = type;
+}
+
 uint8_t network::get_suffix() const {
 	return suffix;
 }

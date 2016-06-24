@@ -12,11 +12,15 @@ enum class network_type {
 class network {
 protected:
 	std::string ip;
+	network_type type;
 	uint8_t suffix;
 
 public:
 	std::string get_ip() const;
 	void set_ip(const std::string ip);
+
+	network_type get_type() const;
+	void set_type(const network_type type);
 
 	uint8_t get_suffix() const;
 	void set_suffix(const uint8_t suffix);
