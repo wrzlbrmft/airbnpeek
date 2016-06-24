@@ -12,7 +12,7 @@ enum class network_type {
 class network {
 protected:
 	std::string ip;
-	int suffix;
+	uint8_t suffix;
 
 public:
 	static std::shared_ptr<network> from_string(const std::string s);

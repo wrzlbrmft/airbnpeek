@@ -10,7 +10,7 @@ protected:
 	boost::asio::ip::address_v4 ip_addr;
 
 public:
-	network_ipv4(const std::string ip, const int suffix);
+	network_ipv4(const std::string ip, const uint8_t suffix);
 };
 
 #endif

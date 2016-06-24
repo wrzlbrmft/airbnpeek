@@ -2,7 +2,7 @@
 
 #include "error.h"
 
-network_ipv4::network_ipv4(const std::string ip, const int suffix) {
+network_ipv4::network_ipv4(const std::string ip, const uint8_t suffix) {
 	try {
 		this->ip = ip;
 		this->suffix = suffix;

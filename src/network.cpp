@@ -11,7 +11,7 @@ std::shared_ptr<network> network::from_string(const std::string s) {
 	std::vector<std::string> splits;
 	std::string ip;
 	network_type type;
-	int suffix;
+	uint8_t suffix;
 
 	boost::split(splits, s, boost::is_any_of("/"));
 	if (2 != splits.size()) {
