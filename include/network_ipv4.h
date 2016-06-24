@@ -18,7 +18,7 @@ public:
 	virtual uint8_t suffix_inv() const;
 
 	virtual uint32_t min_ip_long() const;
-	virtual std::string min_ip() const;
+	virtual uint32_t max_ip_long() const;
 };
 
 #endif

@@ -26,10 +26,9 @@ uint8_t network_ipv4::suffix_inv() const {
 }
 
 uint32_t network_ipv4::min_ip_long() const {
-	return static_cast<uint32_t>((get_ip_addr().to_ulong() >> suffix_inv() << suffix_inv()) + 1);
+	return (static_cast<uint32_t>(get_ip_addr().to_ulong()) >> suffix_inv() << suffix_inv()) + 1;
 }
 
-std::string network_ipv4::min_ip() const {
-	boost::asio::ip::address_v4 ip(min_ip_long());
-	return ip.to_string();
+uint32_t network_ipv4::max_ip_long() const {
+	return (min_ip_long() | (static_cast<uint32_t>(~0) >> get_suffix())) - 1;
 }

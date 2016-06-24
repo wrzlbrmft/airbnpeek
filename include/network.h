@@ -24,7 +24,7 @@ public:
 	virtual uint8_t suffix_inv() const = 0;
 
 	virtual uint32_t min_ip_long() const = 0;
-	virtual std::string min_ip() const = 0;
+	virtual uint32_t max_ip_long() const = 0;
 
 	static std::shared_ptr<network> from_string(const std::string s);
 };
