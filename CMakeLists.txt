@@ -11,6 +11,6 @@ set(BOOST_ROOT "${USER_HOME_DIRECTORY}/code/devel/lib/boost")
 find_package(Boost 1.61 REQUIRED COMPONENTS program_options system)
 include_directories(${Boost_INCLUDE_DIRS})
 
-set(SOURCE_FILES src/main.cpp src/error.cpp src/network.cpp src/network_ipv4.cpp)
+set(SOURCE_FILES src/main.cpp src/error.cpp src/network.cpp src/network_ipv4.cpp src/network_ipv6.cpp)
 add_executable(airbnpeek ${SOURCE_FILES})
 target_link_libraries(airbnpeek ${Boost_LIBRARIES})

@@ -5,6 +5,7 @@
 
 #include "error.h"
 #include "network_ipv4.h"
+#include "network_ipv6.h"
 
 std::string network::get_ip() const {
 	return ip;
@@ -76,7 +77,7 @@ std::shared_ptr<network> network::from_string(const std::string s) {
 			break;
 
 		case network_type::ipv6:
-			throw exception("ipv6 currently not supported");
+			return std::shared_ptr<network>(new network_ipv6(ip, suffix));
 			break;
 	}
 
