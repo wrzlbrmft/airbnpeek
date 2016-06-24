@@ -7,6 +7,7 @@ network_ipv6::network_ipv6(const std::string ip, const uint8_t suffix) {
 		this->ip = ip;
 		this->type = network_type::ipv6;
 		this->suffix = suffix;
+
 		this->ip_addr = boost::asio::ip::address_v6::from_string(this->ip);
 	}
 	catch (...) {
