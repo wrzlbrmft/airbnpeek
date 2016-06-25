@@ -11,6 +11,9 @@ protected:
 public:
 	exception(const std::string msg);
 
+	std::string get_msg() const;
+	void set_msg(const std::string msg);
+
 	virtual const char* what() const throw();
 };
 
