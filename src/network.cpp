@@ -31,10 +31,10 @@ void network::set_suffix(const uint8_t suffix) {
 	this->suffix = suffix;
 }
 
-std::shared_ptr<network> network::from_string(const std::string s) {
+std::shared_ptr<network> network::create(const std::string str) {
 	std::vector<std::string> splits;
 
-	boost::split(splits, s, boost::is_any_of("/"));
+	boost::split(splits, str, boost::is_any_of("/"));
 	if (2 != splits.size()) {
 		throw exception("invalid network");
 	}

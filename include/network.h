@@ -29,7 +29,7 @@ public:
 	virtual boost::multiprecision::uint128_t min_ip_long() const = 0;
 	virtual boost::multiprecision::uint128_t max_ip_long() const = 0;
 
-	static std::shared_ptr<network> from_string(const std::string s);
+	static std::shared_ptr<network> create(const std::string str);
 };
 
 #endif

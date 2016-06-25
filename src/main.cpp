@@ -23,7 +23,7 @@ int main(const int argc, const char** argv) {
 		po::options_description desc("options");
 		desc.add_options()
 			("interface,I", po::value<std::string>(&po_interface), "which interface to use")
-			("network,N", po::value<std::vector<std::string>>(&po_networks), "which network(s) to scan, e.g. 192.168.0.0/24")
+			("network,N", po::value<std::vector<std::string>>(&po_networks), "which network(s) to scan, e.g. 192.168.1.0/24")
 			("version", "print version info and exit")
 			("help,h", "print this help message and exit");
 
@@ -61,7 +61,7 @@ int main(const int argc, const char** argv) {
 
 	for (auto po_network : po_networks) {
 		try {
-			auto network = network::from_string(po_network);
+			auto network = network::create(po_network);
 		}
 		catch (std::exception &e) {
 			std::cerr << "error: " << e.what() << std::endl;

@@ -4,11 +4,11 @@
 
 network_ipv6::network_ipv6(const std::string ip, const uint8_t suffix) {
 	try {
-		this->ip = ip;
-		this->type = network_type::ipv6;
-		this->suffix = suffix;
+		set_ip(ip);
+		set_type(network_type::ipv6);
+		set_suffix(suffix);
 
-		this->ip_addr = boost::asio::ip::address_v6::from_string(this->ip);
+		set_ip_addr(boost::asio::ip::address_v6::from_string(get_ip()));
 	}
 	catch (...) {
 		throw exception("invalid ipv6 network address");
